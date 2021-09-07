@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('home', function(){
         return view('home');
     })->name('home');
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
